@@ -1,0 +1,19 @@
+<project name="Server" default="compile" basedir=".">
+   <target name="init">
+      <property name="sourceDir" value="src" />
+      <property name="outputDir" value="classes" />
+   </target>
+   <target name="clean" depends="init">
+      <delete dir="${outputDir}" />
+   </target>
+   <target name="prepare" depends="clean">
+      <mkdir dir="${outputDir}" />
+   </target>
+   <target name="compile" depends="prepare">
+     <javac srcdir="${sourceDir}" destdir="${outputDir}">
+     	<classpath>
+     		<pathelement location="lib/netty-3.2.6.jar" />
+     	</classpath>
+     </javac>
+   </target>
+</project>
